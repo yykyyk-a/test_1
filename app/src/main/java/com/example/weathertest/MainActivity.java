@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     map2.put("雁塔区", "101110113");
                     map2.put("雁塔", "101110113");
                     map2.put("兴平", "101110211");
+                    map2.put("兴平市", "101110211");
                     String str_city = map2.get(my_string);
                     StringBuilder sb = new StringBuilder();
                     InputStream is = null;
