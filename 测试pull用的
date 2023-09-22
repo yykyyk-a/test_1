@@ -1,1 +1,81 @@
 123456
+//DFS
+#define N 1001
+int map[N][N];
+bool visit[N][N];
+int answer = 0x3f3f3f3f;
+int next[4][2] = {{0,1}, {0,-1}, {1,0}, {-1,0}};
+
+void dfs(int step, int row, int col) {
+    if(row<0 || row >= N || col < 0 || col >= N || visit[row][col]){
+        return;
+    }
+
+    if(step >= answer){
+        return;
+    }
+
+    if(map[row][col] == 0){   //wall
+        return;
+    }
+
+    //judge weather get the goal  
+    if(row == N-1 && col == N-1){
+        answer = step;
+        return;
+    }
+
+    visit[row][col] = true;  //visit
+    for(int i =0; i<4; i++){
+        int next_row = row + next[i][0];
+        int next_col = col + next[i][1];
+        dfs(step+1, next_row, next_col);
+    }
+
+    visit[row][col] = false;   //reverse
+
+}
+
+
+//BFS
+
+#define MAXN 100
+
+bool visited[N][N];
+int Que[MAXN * MAXN][2];
+int ed = 0;
+
+void BFS(int x, int y){
+
+    //enqueue
+    Que[ed][0] = x;
+    Que[ed][1] = y;
+    ed++;
+
+    visited[x][y] = true;
+
+    //queue
+    for(int k = 0; k<ed; k++){
+        for(int i = 0; i < 4; i++){
+            int next_row = Que[k][0] + next[i][0];
+            int next_col = Que[k][1] + next[i][1];
+
+            if(){ //out of scope, visited, no road
+                continue;
+            }
+
+            //judge ....
+            if(){
+                return;
+            }
+
+            Que[ed][0] = next_row;
+            QUe[ed][1] = next_col;
+            ed++;
+            visit[next_row][next_col] = true;
+
+        }
+
+    }
+    
+}
