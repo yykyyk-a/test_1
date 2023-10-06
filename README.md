@@ -7,6 +7,7 @@ I am Yikun Yu. The follow is my code:
 >int main()
 
 (```)
+
 int a;
 int b;
 int c;
